@@ -22,8 +22,11 @@ jobs:
     - name: 📦 Instalar dependencias
       run: npm ci
 
+    - name: 🌐 Instalar navegadores de Playwright
+      run: npx playwright install --with-deps
+
     - name: 🧪 Ejecutar pruebas de API y Base de Datos
-      run: npx playwright test users.spec.ts persistency.spec.ts
+      run: npx playwright test tests/api/users.spec.ts tests/database/persistency.spec.ts --workers=1
 
     - name: 📊 Subir reporte de Playwright como artefacto
       uses: actions/upload-artifact@v4

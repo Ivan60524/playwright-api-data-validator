@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test --workers=1",
+    "test:headed": "playwright test --headed --workers=1",
+    "test:api": "playwright test tests/api/users.spec.ts --workers=1",
+    "test:db": "playwright test tests/database/persistency.spec.ts --workers=1"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
